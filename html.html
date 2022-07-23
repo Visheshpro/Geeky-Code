@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+    <title>GeekyCode - HTML Master Course</title>
+    <style>
+      
+      [data-tab-info] {
+        display: none;
+      }
+
+     [data-tab-value]{
+        border: 10px;
+      }
+
+      .active[data-tab-info] {
+        display: block;
+      }
+
+      .tab-content {
+        font-size: 30px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: rgb(82, 75, 75);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-100">
+    <header class="text-gray-600 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          href="./index.html"
+          class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+        >
+          <img
+            src="./assets/logo.PNG"
+            alt="Logo"
+            class="w-12 text-white p-2 rounded-full"
+          />
+          <span class="text-xl">GeekyCode</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a class="mr-5 hover:text-gray-900" href="./index.html">Home</a>
+          <a class="mr-5 hover:text-gray-900" href="./learn.html">Learn</a>
+          <a class="mr-5 hover:text-gray-900" href="./blog.html">Blog</a>
+        </nav>
+        <a
+          class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          Youtube
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="flex flex-col items-center">
+      <div>
+        <iframe
+          class="rounded-sm"
+          src="https://www.youtube.com/embed/HcOc7P5BMi4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="flex flex-col items-center mt-3">
+        <p class="mb-2 bold">Playlist</p>
+        <div
+          class="overflow-auto w-[300px] h-[150px] bg-white border-2 mx-4 flex flex-col items-center border-black rounded"
+        >
+          <div class="drop-shadow-xl mt-2">
+            <a class="border-b-2 drop-shadow-lg" href=""
+              >01. Introduction to HTML</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="tabs flex">
+        <span
+          class="p-8 hover:cursor-pointer"
+          id="tab_1"
+          data-tab-value="#tab_1"
+          >Notes</span
+        >
+        <span
+          class="p-8 hover:cursor-pointer"
+          id="tab_2"
+          data-tab-value="#tab_2"
+          >Resources</span
+        >
+        <span
+          class="p-8 hover:cursor-pointer"
+          id="tab_3"
+          data-tab-value="#tab_3"
+          >Announcements</span
+        >
+      </div>
+      <div class="tab-content">
+        <div class="tabs__tab active" id="tab_1" data-tab-info>
+          <p>Welcome to GeeksforGeek.</p>
+        </div>
+        <div class="tabs__tab" id="tab_2" data-tab-info>
+          <p>Hello Everyone.</p>
+        </div>
+        <div class="tabs__tab" id="tab_3" data-tab-info>
+          <p>Learn cool stuff.</p>
+        </div>
+      </div>
+      <script type="text/javascript">
+        const tabs = document.querySelectorAll("[data-tab-value]");
+        const tabInfos = document.querySelectorAll("[data-tab-info]");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const target = document.querySelector(tab.dataset.tabValue);
+            console.log(target);
+            active__tab = target.id;
+
+            tabInfos.forEach((tabInfo) => {
+              tabInfo.classList.remove("active");
+            });
+            target.classList.add("active");
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
